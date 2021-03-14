@@ -259,7 +259,7 @@ public class MySQLTasks {
 //                "business_id IN (SELECT business_id FROM checkins " +
 //                "WHERE time LIKE '%{}%') ";
                 "SELECT business_id FROM checkins " +
-                "WHERE time LIKE '%{}%'";
+                "WHERE time IS NULL OR time = ''";
         executeDataManipulationQuery(sql);
     }
 
