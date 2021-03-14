@@ -277,7 +277,7 @@ public class MySQLTasks {
 //                "SELECT reviews.user_id FROM reviews " +
 //                "INNER JOIN tips WHERE tips.user_id = reviews.user_id " +
 //                " WHERE reviews.cool = (SELECT MAX(reviews.cool) FROM reviews)";
-                "SELECT tips.user_id from tips WHERE tips.user_id=" +
+                "SELECT tips.user_id from tips WHERE tips.user_id IN" +
                         "(SELECT user_id FROM reviews" +
                         " WHERE cool = (SELECT MAX(cool) FROM reviews))";
         executeDataManipulationQuery(sql);
