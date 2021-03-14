@@ -154,7 +154,6 @@ public class MySQLTasks {
     private static void q5() {
         dropCustomIndexesOnReviews();
         String sql =
-                //" SELECT user_id, MAX(cool) AS cool FROM reviews";
                 "SELECT user_id FROM reviews" +
                 " WHERE cool = (SELECT MAX(cool) FROM reviews)";
         executeDataManipulationQuery(sql);
@@ -174,7 +173,7 @@ public class MySQLTasks {
      * The index should be a single-column index instead of a composite index.
      */
     private static void q6() {
-        String sql = "";
+        String sql = "CREATE CLUSTERED INDEX desc_cool ON reviews(cool DESC)";
         executeDataDefinitionQuery(sql);
         printIndexColumnNames("reviews");
     }
@@ -226,7 +225,8 @@ public class MySQLTasks {
      * </pre>
      */
     private static void q7() {
-        String sql = "";
+        String sql = "SELECT user_id FROM reviews" +
+                " WHERE cool = MAX(desc_cool.cool)";
         executeDataManipulationQuery(sql);
         printScannedRows(sql);
     }
