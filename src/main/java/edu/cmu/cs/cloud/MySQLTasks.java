@@ -173,7 +173,7 @@ public class MySQLTasks {
      * The index should be a single-column index instead of a composite index.
      */
     private static void q6() {
-        String sql = "CREATE CLUSTERED INDEX desc_cool ON reviews(cool DESC)";
+        String sql = "CREATE INDEX desc_cool ON reviews(cool DESC)";
         executeDataDefinitionQuery(sql);
         printIndexColumnNames("reviews");
     }
