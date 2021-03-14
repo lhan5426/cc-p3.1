@@ -273,7 +273,9 @@ public class MySQLTasks {
      * You are only allowed to edit the sql.
      */
     private static void q9() {
-        String sql = "";
+        String sql = "SELECT user_id FROM cool = (SELECT MAX(cool) FROM " +
+                "reviews) AND user_id IN (SELECT user_id FROM " +
+                "tips)";
         executeDataManipulationQuery(sql);
     }
 
