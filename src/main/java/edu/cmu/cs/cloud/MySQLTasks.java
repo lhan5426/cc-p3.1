@@ -276,7 +276,8 @@ public class MySQLTasks {
         String sql = "SELECT reviews.user_id FROM reviews WHERE " +
                 "reviews.user_id IN" +
                 "(SELECT tips.user_id FROM tips)" +
-                " AND reviews.cool = (SELECT MAX(cool) FROM reviews)";
+                " AND reviews.cool = (SELECT MAX(cool) FROM reviews INNER " +
+                "JOIN tips ON reviews.user_id = tips.user_id)";
         executeDataManipulationQuery(sql);
     }
 
