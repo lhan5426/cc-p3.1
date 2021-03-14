@@ -1,0 +1,32 @@
+-------------------------------------------------------------------------------
+Test set: edu.cmu.cs.cloud.RedisTest
+-------------------------------------------------------------------------------
+Tests run: 11, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 0.041 s <<< FAILURE! - in edu.cmu.cs.cloud.RedisTest
+hget  Time elapsed: 0.016 s  <<< ERROR!
+java.lang.RuntimeException: add test cases on your own
+	at edu.cmu.cs.cloud.RedisTest.hget(RedisTest.java:111)
+
+hset  Time elapsed: 0.01 s  <<< ERROR!
+java.lang.RuntimeException: add test cases on your own
+	at edu.cmu.cs.cloud.RedisTest.hset(RedisTest.java:106)
+
+llen  Time elapsed: 0 s  <<< ERROR!
+java.lang.RuntimeException: add test cases on your own
+	at edu.cmu.cs.cloud.RedisTest.llen(RedisTest.java:121)
+
+rpop  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.RuntimeException: add test cases on your own
+	at edu.cmu.cs.cloud.RedisTest.rpop(RedisTest.java:131)
+
+type  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.UnsupportedOperationException: Waiting to be implemented
+	at edu.cmu.cs.cloud.RedisTest.type(RedisTest.java:47)
+
+rpush  Time elapsed: 0 s  <<< ERROR!
+java.lang.RuntimeException: add test cases on your own
+	at edu.cmu.cs.cloud.RedisTest.rpush(RedisTest.java:126)
+
+hgetall  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.RuntimeException: add test cases on your own
+	at edu.cmu.cs.cloud.RedisTest.hgetall(RedisTest.java:116)
+
