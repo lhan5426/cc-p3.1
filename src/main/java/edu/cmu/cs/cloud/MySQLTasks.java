@@ -253,13 +253,10 @@ public class MySQLTasks {
     // nested SQL call to get correct business id
     private static void q8() {
         String sql =
-//                "SELECT name FROM businesses " +
-//                "WHERE neighborhood = 'South Side' AND " +
-//                "name LIKE BINARY '%Coast%' AND " +
-//                "business_id IN (SELECT business_id FROM checkins " +
-//                "WHERE time LIKE '%{}%') ";
-                "SELECT business_id FROM checkins " +
-                "WHERE time IS NULL OR time = ''";
+                "SELECT name FROM businesses " +
+                "WHERE neighborhood = 'South Side' AND " +
+                "name LIKE BINARY '%Coast%' AND " +
+                "business_id NOT IN checkins ";
         executeDataManipulationQuery(sql);
     }
 
