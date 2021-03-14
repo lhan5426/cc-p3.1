@@ -257,7 +257,7 @@ public class MySQLTasks {
                 "WHERE neighborhood = 'South Side' AND " +
                 "name LIKE BINARY '%Coast%' AND " +
                 "business_id IN (SELECT business_id FROM checkins " +
-                "WHERE business_id = 0) ";
+                "WHERE time LIKE '%{}%') ";
         executeDataManipulationQuery(sql);
     }
 
