@@ -251,7 +251,9 @@ public class MySQLTasks {
      * You are only allowed to edit the sql.
      */
     private static void q8() {
-        String sql = "";
+        String sql = "SELECT name FROM businesses " +
+                "WHERE neighborhood = 'South Side' AND name LIKE '%Coast%' " +
+                "AND review_count = 0";
         executeDataManipulationQuery(sql);
     }
 
