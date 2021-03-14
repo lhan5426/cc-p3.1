@@ -275,7 +275,7 @@ public class MySQLTasks {
     private static void q9() {
         String sql = "SELECT tips.user_id FROM tips " +
                 "INNER JOIN reviews WHERE tips.user_id = reviews.user_id " +
-                " GROUP BY reviews.cool";
+                " AND reviews.cool = (SELECT MAX(cool) FROM reviews)";
         executeDataManipulationQuery(sql);
     }
 
