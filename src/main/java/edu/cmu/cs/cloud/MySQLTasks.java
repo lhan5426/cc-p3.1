@@ -256,7 +256,7 @@ public class MySQLTasks {
                 "SELECT name FROM businesses " +
                 "WHERE neighborhood = 'South Side' AND " +
                 "name LIKE BINARY '%Coast%' AND " +
-                "WHERE business_id IN (SELECT business_id FROM checkins " +
+                "business_id IN (SELECT business_id FROM checkins " +
                 "WHERE business_id = 0) ";
         executeDataManipulationQuery(sql);
     }
