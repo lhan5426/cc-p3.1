@@ -252,8 +252,8 @@ public class MySQLTasks {
      */
     private static void q8() {
         String sql = "SELECT name FROM businesses " +
-                "WHERE neighborhood = 'South Side' AND name COLLATE LIKE " +
-                "'%Coast%' ";
+                "WHERE neighborhood = 'South Side' AND COLLATE name LIKE" +
+                " '%Coast%' ";
         //+
                 //"AND review_count = 0";
         executeDataManipulationQuery(sql);
