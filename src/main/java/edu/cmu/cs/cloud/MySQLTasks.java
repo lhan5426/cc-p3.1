@@ -290,10 +290,13 @@ public class MySQLTasks {
      * You are only allowed to edit the sql.
      */
     private static void q10() {
-        String sql = "SELECT businesses.city, AG.AvgNum" +
-                "FROM (SELECT city, AVG(stars) AS AvgScore" +
-                "FROM businesses GROUP BY city) AG" +
-                "JOIN businesses ON businesses.city = AG.city";
+        String sql = "SELECT city, avg_num" +
+                "FROM businesses " +
+                "LEFT JOIN " +
+                "(SELECT AVG(stars) AS avg_num, grp " +
+                "FROM businesses" +
+                "GROUP BY grp) grouped" +
+                "USING(grp)";
         executeDataManipulationQuery(sql);
     }
 
