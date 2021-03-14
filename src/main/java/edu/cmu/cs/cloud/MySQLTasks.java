@@ -226,7 +226,7 @@ public class MySQLTasks {
      */
     private static void q7() {
         String sql = "SELECT user_id FROM reviews" +
-                " WHERE cool = (SELECT MAX(cool) FROM reviews)";
+                " WHERE cool = (SELECT MAX(cool) FROM desc_cool)";
         executeDataManipulationQuery(sql);
         printScannedRows(sql);
     }
