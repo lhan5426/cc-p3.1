@@ -156,7 +156,7 @@ public class MySQLTasks {
         String sql =
                 "SELECT user_id FROM reviews " +
                 " WHERE reviews.cool IN" +
-                " (SELECT MAX(cool) FROM REVIEWS" +
+                " (SELECT MAX(cool) FROM reviews" +
                 " GROUP BY user_id" +
                 ")";
         executeDataManipulationQuery(sql);
