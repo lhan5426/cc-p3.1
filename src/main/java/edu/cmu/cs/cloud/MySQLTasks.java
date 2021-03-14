@@ -250,13 +250,14 @@ public class MySQLTasks {
      *
      * You are only allowed to edit the sql.
      */
+    // nested SQL call to get correct business id
     private static void q8() {
-        String sql = "SELECT name FROM businesses " +
-                //"WHERE neighborhood = 'South Side' AND " +
-                "WHERE review_count = 0";
-                //"name LIKE BINARY '%Coast%' ";
-        //+
-                //"AND review_count = 0";
+        String sql =
+                "SELECT name FROM businesses " +
+                "WHERE neighborhood = 'South Side' AND " +
+                "name LIKE BINARY '%Coast%' AND " +
+                " business_id = (SELECT business_id FROM checkins WHERE " +
+                " business_id = 0) ";
         executeDataManipulationQuery(sql);
     }
 
