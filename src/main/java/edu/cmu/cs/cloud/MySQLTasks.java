@@ -307,14 +307,15 @@ public class MySQLTasks {
                 //"SELECT businesses.city, avg_num " +
                 //"FROM businesses " +
                 //"WHERE businesses.city IN " +
-                "(SELECT " +
+                "SELECT " +
                         "b1.city, " +
                         "b2.city, " +
-                        "AVG(b1.stars) AS 'avg_num' "+
-                "FROM businesses b1 " +
+                        //"b2.avg_num" +
+                "FROM (SELECT b1.city, AVG(b1.stars) AS 'avg_num' " +
+                       "FROM businesses b1 " +
+                       "GROUP BY b1.city) " +
                 "INNER JOIN businesses b2 " +
-                    "ON b1.city = b2.city " +
-                "GROUP BY b1.city) ";
+                    "ON b1.city = b2.city " ;
                         //+
                 //"ORDER BY avg_num DESC, businesses.city DESC " +
                 //"LIMIT 3";
