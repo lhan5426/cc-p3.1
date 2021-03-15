@@ -307,12 +307,12 @@ public class MySQLTasks {
                 //"SELECT businesses.city, avg_num " +
                 //"FROM businesses " +
                 //"WHERE businesses.city IN " +
-                "SELECT b1.city," +
-                "(SELECT AVG(b1.stars)" +
-                "FROM businesses" +
-                "WHERE city = b1.city) avg_num," +
-                "AS b2" +
-                "FROM businesses b1" +
+                "SELECT b1.city, " +
+                "(SELECT AVG(b1.stars) " +
+                "FROM businesses " +
+                "WHERE city = b1.city) avg_num, " +
+                "AS b2 " +
+                "FROM businesses b1 " +
                 "GROUP BY avg_num DESC, b1.city DESC";
                         //+
                 //"ORDER BY avg_num DESC, businesses.city DESC " +
