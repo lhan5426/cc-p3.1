@@ -304,10 +304,10 @@ public class MySQLTasks {
                  */
                 "SELECT " +
                         "city, " +
-                        "AVG(stars) OVER (PARTITION BY city) " +
+                        "ROUND(AVG(stars) OVER (PARTITION BY city)) " +
                         "AS avg_stars " +
                 "FROM businesses " +
-                "GROUP BY city ASC " +
+                "GROUP BY city " +
                 "ORDER BY avg_stars DESC " +
                 "LIMIT 3";
                         //+
