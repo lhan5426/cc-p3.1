@@ -314,7 +314,7 @@ public class MySQLTasks {
                 "FROM businesses b1 " +
                 "INNER JOIN businesses b2 " +
                     "ON b1.city = b2.city " +
-                "GROUP BY businesses.city) ";
+                "GROUP BY b1.city) ";
                         //+
                 //"ORDER BY avg_num DESC, businesses.city DESC " +
                 //"LIMIT 3";
