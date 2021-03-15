@@ -294,20 +294,6 @@ public class MySQLTasks {
      */
     private static void q10() {
         String sql =
-//                "SELECT businesses.city FROM " +
-//                "businesses WHERE " +
-//                "businesses.city IN" +
-//                "(SELECT businesses.city " +
-//                "FROM (SELECT city, AVG(stars) as avg_num " +
-//                       "FROM businesses " +
-//                       "GROUP BY city) AG " +
-//                "JOIN businesses businesses ON businesses.city = AG.city) "+
-//                "ORDER BY avg_num DESC, businesses.city DESC " +
-//                "LIMIT 3";
-                //"SELECT businesses.city, avg_num " +
-                //"FROM businesses " +
-                //"WHERE businesses.city IN " +
-
                 /*
                 "(SELECT AVG(b1.stars) " +
                 "FROM businesses " +
@@ -316,10 +302,13 @@ public class MySQLTasks {
                 "GROUP BY b1.city DESC " +
                 "ORDER BY avg_num DESC ";
                  */
-                "SELECT city, AVG(stars) avg_stars " +
+                "SELECT " +
+                        "city, " +
+                        "(ROUND(AVG(stars)) OVER(PARTITION BY city)) " +
+                        "AS avg_stars " +
                 "FROM businesses " +
                 "GROUP BY city ASC " +
-                "ORDER BY avg_stars ASC " +
+                "ORDER BY avg_stars DESC " +
                 "LIMIT 3";
                         //+
                 //"ORDER BY avg_num DESC, businesses.city DESC " +
