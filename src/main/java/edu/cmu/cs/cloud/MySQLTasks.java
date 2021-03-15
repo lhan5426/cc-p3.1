@@ -304,9 +304,9 @@ public class MySQLTasks {
 //                "JOIN businesses businesses ON businesses.city = AG.city) "+
 //                "ORDER BY avg_num DESC, businesses.city DESC " +
 //                "LIMIT 3";
-                "(SELECT businesses.city, AVG(businesses.stars) " +
-                        "OVER (PARTITION by city) AS avg_stars " +
-                "FROM businesses ";
+                "SELECT businesses.city, AVG(businesses.stars) " +
+                "FROM businesses " +
+                "GROUP BY businesses.city";
         executeDataManipulationQuery(sql);
     }
 
