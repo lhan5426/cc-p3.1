@@ -312,7 +312,7 @@ public class MySQLTasks {
                 "FROM businesses " +
                 "WHERE city = b1.city) AS avg_num " +
                 "FROM businesses b1 " +
-                "GROUP BY avg_num DESC, b1.city DESC";
+                "ORDER BY avg_num DESC, b1.city DESC";
                         //+
                 //"ORDER BY avg_num DESC, businesses.city DESC " +
                 //"LIMIT 3";
