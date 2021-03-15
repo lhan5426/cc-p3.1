@@ -300,7 +300,7 @@ public class MySQLTasks {
                        "FROM businesses " +
                        "GROUP BY city) AG " +
                 "JOIN businesses businesses ON businesses.city = AG.city) "+
-                "ORDER BY avg_num DESC " +
+                "ORDER BY avg_num DESC, businesses.city DESC " +
                 "LIMIT 3";
 //                "(SELECT AVG(stars) AS avg_num, city " +
 //                "FROM businesses " +
