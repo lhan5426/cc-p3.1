@@ -305,7 +305,7 @@ public class MySQLTasks {
 //                "ORDER BY avg_num DESC, businesses.city DESC " +
 //                "LIMIT 3";
                 "(SELECT businesses.city," +
-                        " AVG(stars) OVER (PARTITION BY city) AS avg_stars" +
+                        " AVG(stars) OVER (PARTITION BY city) AS avg_stars " +
                 "FROM businesses ";
         executeDataManipulationQuery(sql);
     }
