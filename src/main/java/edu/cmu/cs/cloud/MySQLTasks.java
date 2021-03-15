@@ -310,7 +310,7 @@ public class MySQLTasks {
                 "SELECT b1.city, " +
                 "(SELECT AVG(b1.stars) " +
                 "FROM businesses " +
-                "WHERE city = b1.city) AS avg_num " +
+                "WHERE city IN b1.city) AS avg_num " +
                 "FROM businesses b1 " +
                 "GROUP BY b1.city DESC " +
                 "ORDER BY avg_num DESC ";
