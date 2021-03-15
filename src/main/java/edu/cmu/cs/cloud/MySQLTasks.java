@@ -292,7 +292,7 @@ public class MySQLTasks {
      */
     private static void q10() {
         String sql = "SELECT businesses.business_id, businesses.stars, " +
-                "businesses.avg_num, businesses.city " +
+                " businesses.city " +
                 "FROM (SELECT city, AVG(stars) as avg_num " +
                        "FROM businesses " +
                        "GROUP BY city) AG " +
