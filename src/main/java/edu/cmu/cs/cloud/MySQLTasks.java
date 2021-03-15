@@ -294,9 +294,10 @@ public class MySQLTasks {
      */
     private static void q10() {
         String sql =
-                "SELECT city, ROUND(AVG(stars)) AS avg_stars" +
+                "SELECT city, " +
+                        "ROUND(AVG(stars)) AS avg_stars " +
                 "FROM businesses " +
-                "GROUP BY city" +
+                "GROUP BY city " +
                 "ORDER BY avg_stars DESC, city ASC " +
                 "LIMIT 3";
         executeDataManipulationQuery(sql);
