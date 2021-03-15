@@ -310,7 +310,7 @@ public class MySQLTasks {
                 "(SELECT " +
                         "b1.city" +
                         "b2.city " +
-                        "AVG(b1.stars) 'avg_num' " +
+                        "AVG(b1.stars) AS 'avg_num' " +
                 "FROM businesses b1 " +
                 "INNER JOIN businesses b2 " +
                     "ON b1.city = b2.city " +
