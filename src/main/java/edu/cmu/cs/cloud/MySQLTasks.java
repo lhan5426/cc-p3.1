@@ -294,22 +294,11 @@ public class MySQLTasks {
      */
     private static void q10() {
         String sql =
-                /*
-                "(SELECT AVG(b1.stars) " +
+                "SELECT city, ROUND(AVG(stars)) AS avg_stars" +
                 "FROM businesses " +
-                "WHERE city IN b1.city) AS avg_num " +
-                "FROM businesses b1 " +
-                "GROUP BY b1.city DESC " +
-                "ORDER BY avg_num DESC ";
-                 */
-                "SELECT city, ROUND(AVG(stars) OVER (PARTITION BY city)) AS avg_stars" +
-                "FROM businesses " +
-                "GROUP BY city " +
-                "ORDER BY avg_stars DESC " +
+                "GROUP BY city ASC" +
+                "ORDER BY avg_stars DESC, city ASC " +
                 "LIMIT 3";
-                        //+
-                //"ORDER BY avg_num DESC, businesses.city DESC " +
-                //"LIMIT 3";
         executeDataManipulationQuery(sql);
     }
 
