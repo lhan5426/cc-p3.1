@@ -318,8 +318,7 @@ public class MySQLTasks {
                  */
                 "SELECT city, round(AVG(stars)) avg_stars " +
                 "FROM businesses " +
-                "GROUP BY city ASC " +
-                "ORDER BY avg_stars DESC " +
+                "ORDER BY city ASC, avg_stars DESC " +
                 "LIMIT 3";
                         //+
                 //"ORDER BY avg_num DESC, businesses.city DESC " +
