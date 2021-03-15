@@ -1,5 +1,7 @@
 package edu.cmu.cs.cloud;
 
+import sun.security.ssl.SSLContextImpl;
+
 import java.rmi.activation.ActivationGroup;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -291,11 +293,15 @@ public class MySQLTasks {
      * You are only allowed to edit the sql.
      */
     private static void q10() {
-        String sql = "SELECT businesses.stars, businesses.city " +
+        String sql = "SELECT businesses.city FROM businesses WHERE businesses" +
+                ".city IN" +
+                "(SELECT businesses.stars, businesses.city " +
                 "FROM (SELECT city, AVG(stars) as avg_num " +
                        "FROM businesses " +
                        "GROUP BY city) AG " +
-                "JOIN businesses businesses ON businesses.city = AG.city";
+                "JOIN businesses businesses ON businesses.city = AG.city)"+
+                "ORDER BY avg_num DESC" +
+                "LIMIT 3";
 //                "(SELECT AVG(stars) AS avg_num, city " +
 //                "FROM businesses " +
 //                "GROUP BY city) grouped " +
