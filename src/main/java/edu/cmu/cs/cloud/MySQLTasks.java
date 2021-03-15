@@ -294,9 +294,9 @@ public class MySQLTasks {
         String sql = "SELECT businesses.user_id, businesses.stars, " +
                 "businesses.avg_num, businesses.city " +
                 "FROM (SELECT city, AVG(stars) as avg_num " +
-                       "FROM TableName " +
+                       "FROM businesses " +
                        "GROUP BY city) AG " +
-                "JOIN TableName businesses ON businesses.city = AG.city";
+                "JOIN businesses businesses ON businesses.city = AG.city";
 //                "(SELECT AVG(stars) AS avg_num, city " +
 //                "FROM businesses " +
 //                "GROUP BY city) grouped " +
