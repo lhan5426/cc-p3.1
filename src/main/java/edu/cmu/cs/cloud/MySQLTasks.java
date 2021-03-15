@@ -306,10 +306,11 @@ public class MySQLTasks {
 //                "LIMIT 3";
                 "SELECT businesses.city FROM businesses " +
                 "WHERE businesses.city IN " +
-                "(SELECT businesses.city, AVG(businesses.stars) 'avg_num' " +
+                "(SELECT businesses.city, 'b2.city', AVG(businesses.stars) " +
+                        "'avg_num' " +
                 "FROM businesses " +
                         "LEFT OUTER JOIN businesses " +
-                        "ON businesses.city = businesses.city " +
+                        "ON businesses.city = b2.city " +
                 "GROUP BY businesses.city) " +
                 "ORDER BY avg_num DESC, businesses.city DESC " +
                 "LIMIT 3";
