@@ -304,7 +304,7 @@ public class MySQLTasks {
                  */
                 "SELECT " +
                         "city, " +
-                        "(ROUND(AVG(stars)) OVER(PARTITION BY city)) " +
+                        "ROUND(AVG(stars) OVER(PARTITION BY city)) " +
                         "AS avg_stars " +
                 "FROM businesses " +
                 "GROUP BY city ASC " +
