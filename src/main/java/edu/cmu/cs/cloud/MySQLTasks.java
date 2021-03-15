@@ -293,9 +293,10 @@ public class MySQLTasks {
      * You are only allowed to edit the sql.
      */
     private static void q10() {
-        String sql = "SELECT businesses.city FROM businesses WHERE " +
+        String sql = "SELECT businesses.stars, businesses.city FROM " +
+                "businesses WHERE " +
                 "businesses.city IN" +
-                "(SELECT businesses.city " +
+                "(SELECT businesses.stars, businesses.city " +
                 "FROM (SELECT city, AVG(stars) as avg_num " +
                        "FROM businesses " +
                        "GROUP BY city) AG " +
