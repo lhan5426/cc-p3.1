@@ -291,8 +291,7 @@ public class MySQLTasks {
      * You are only allowed to edit the sql.
      */
     private static void q10() {
-        String sql = "SELECT businesses.business_id, businesses.stars, " +
-                " businesses.city " +
+        String sql = "SELECT businesses.stars, businesses.city " +
                 "FROM (SELECT city, AVG(stars) as avg_num " +
                        "FROM businesses " +
                        "GROUP BY city) AG " +
