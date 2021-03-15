@@ -1,5 +1,6 @@
 package edu.cmu.cs.cloud;
 
+import java.rmi.activation.ActivationGroup;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -290,13 +291,16 @@ public class MySQLTasks {
      * You are only allowed to edit the sql.
      */
     private static void q10() {
-        String sql = "SELECT user_id, stars, avg_num, city" +
-                "FROM businesses " +
-                "LEFT JOIN " +
-                "(SELECT AVG(stars) AS avg_num, city " +
-                "FROM businesses " +
-                "GROUP BY city) grouped " +
-                "USING(city)";
+        String sql = "SELECT businesses.user_id, businesses.stars, " +
+                "businesses.avg_num, businesses.city" +
+                "FROM (SELECT city, AVG(stars) as avg_num " +
+                       "FROM TableName " +
+                       "GROUP BY city) AG" +
+                "JOIN TableName businesses ON businesses.city = AG.city";
+//                "(SELECT AVG(stars) AS avg_num, city " +
+//                "FROM businesses " +
+//                "GROUP BY city) grouped " +
+//                "USING(city)";
         executeDataManipulationQuery(sql);
     }
 
